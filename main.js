@@ -14,7 +14,7 @@ const translations = {
   'fr' : frJson
 };
 
-export default class MyComponent {
+export default class BookmarkListDemo {
 
   constructor(config) {
     const locale = config.locale ? config.locale : '';
@@ -27,8 +27,6 @@ export default class MyComponent {
   init(config) {
 
     const locale = config.locale ? config.locale : 'en';
-    console.log('locale=', locale);
-    console.log('locale=', translations[locale]);
 
     ReactDOM.render(
       <IntlProvider locale={locale} messages={translations[locale]}>
@@ -45,4 +43,4 @@ export default class MyComponent {
 //
 // For events, use the Origami naming convention of pre-pending with 'o.'
 //
-document.body.addEventListener('o.InitMyComponent', e => new MyComponent(e.detail));
+document.body.addEventListener('o.initBookmarkListDemo', e => new BookmarkListDemo(e.detail));
