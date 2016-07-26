@@ -1,8 +1,7 @@
 'use strict';
 
-//import React, {PropTypes} from 'react';
-import React from 'react';
-import {injectIntl} from 'react-intl';
+import React, {PropTypes} from 'react';
+import {injectIntl, intlShape} from 'react-intl';
 import {messages} from './defaultMessages';
 
 class BookmarkList extends React.Component {
@@ -90,4 +89,13 @@ class BookmarkList extends React.Component {
   }
 }
 
-export default injectIntl(BookmarkList, {withRef: true});
+BookmarkList.propTypes = {
+  intl: intlShape.isRequired,
+  elementId: PropTypes.string.isRequired,
+  locale: PropTypes.string,
+  clickBookmarkHandler: PropTypes.func,
+  removeBookmarkHandler: PropTypes.func,
+  bookmarksArr: PropTypes.array.isRequired
+};
+
+export default injectIntl(BookmarkList);
