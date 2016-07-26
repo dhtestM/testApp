@@ -62,7 +62,7 @@ rules:
   space-infix-ops: 0
   consistent-return: 0
 
-parser: babel-eslint
+ # parser: babel-eslint
 
 plugins:
   - react

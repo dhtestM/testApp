@@ -19,11 +19,10 @@ class BookmarkList extends React.Component {
 
   handleRemoveBookmark(uri) {
     function callBack() {
-      const obj = this.props.bookmarksArr.find(item => item.uri === uri);
-      const index = this.props.bookmarksArr.indexOf(obj);
+      const removedObj = this.props.bookmarksArr.find(item => item.uri === uri);
+      const index = this.props.bookmarksArr.indexOf(removedObj);
       this.props.bookmarksArr.splice(index, 1);
 
-      //_.remove(this.props.bookmarksArr, {uri: uri});
       this.setState({bookmarkList: this.props.bookmarksArr});
     }
 
@@ -34,14 +33,9 @@ class BookmarkList extends React.Component {
 
   renderNoBookmarks() {
     const {formatMessage} = this.props.intl;
-    return (<div id="o-bookmark-panel" role="main">
-      <header>
-        <h1>{formatMessage(messages.bookmarkTitle)}</h1>
-      </header>
-      <div className="o-bookmark-empty-help">
-        <div tabIndex="0" className="o-bookmark-empty-message">
-          <p>{formatMessage(messages.noBookmarksMsg)}</p>
-        </div>
+    return (<div className="o-bookmark-empty-help">
+      <div tabIndex="0" className="o-bookmark-empty-message">
+        <p>{formatMessage(messages.noBookmarksMsg)}</p>
       </div>
     </div>)
   }
@@ -51,45 +45,40 @@ class BookmarkList extends React.Component {
     const {formatMessage} = this.props.intl;
     const {formatDate} = this.props.intl;
 
-    return( <div id="o-bookmark-panel" role="main">
-      <header>
-        <h1>{formatMessage(messages.bookmarkTitle)}</h1>
-      </header>
-      <ul className="o-bookmark-list">
-        {
-          this.state.bookmarkList.map(function(bkmark) {
-            return <li className="o-bookmark-section" key={bkmark.uri}>
-              <a className="o-bookmark-title"
-                data-uri={bkmark.uri}
-                href="javascript:void(0)"
-                onClick = {that.handleClick.bind(that, bkmark.uri)}
-                onKeyPress={that.handleClick.bind(that, bkmark.uri)}>{bkmark.title}
-              </a>
-              <div className="o-bookmark-date">
-                <time value={bkmark.createdTimestamp}>{formatDate(new Date(bkmark.createdTimestamp), {
-                  year : 'numeric',
-                  month: 'numeric',
-                  day  : 'numeric'
-                })}</time>
-                <span>|</span>
-                <time value={bkmark.createdTimestamp}>{formatDate(new Date(bkmark.createdTimestamp), {
-                  hour : 'numeric',
-                  minute: 'numeric',
-                  second  : 'numeric'
-                })}</time>
-              </div>
-              <a href="javascript:void(0);"
-                className="remove"
-                onClick= {that.handleRemoveBookmark.bind(that, bkmark.uri)}
-                aria-label={formatMessage(messages.removeBookmarkText)}
-                role="button">
-                <span className="pe-icon--times" aria-hidden="true"></span>
-              </a>
-            </li>
-          })
-        }
-      </ul>
-    </div> )
+    return(<ul className="o-bookmark-list">
+      {
+        this.state.bookmarkList.map(function(bkmark) {
+          return <li className="o-bookmark-section" key={bkmark.uri}>
+            <a className="o-bookmark-title"
+              data-uri={bkmark.uri}
+              href="javascript:void(0)"
+              onClick = {that.handleClick.bind(that, bkmark.uri)}
+              onKeyPress={that.handleClick.bind(that, bkmark.uri)}>{bkmark.title}
+            </a>
+            <div className="o-bookmark-date">
+              <time value={bkmark.createdTimestamp}>{formatDate(new Date(bkmark.createdTimestamp), {
+                year : 'numeric',
+                month: 'numeric',
+                day  : 'numeric'
+              })}</time>
+              <span>|</span>
+              <time value={bkmark.createdTimestamp}>{formatDate(new Date(bkmark.createdTimestamp), {
+                hour : 'numeric',
+                minute: 'numeric',
+                second  : 'numeric'
+              })}</time>
+            </div>
+            <a href="javascript:void(0);"
+              className="remove"
+              onClick= {that.handleRemoveBookmark.bind(that, bkmark.uri)}
+              aria-label={formatMessage(messages.removeBookmarkText)}
+              role="button">
+              <span className="pe-icon--times" aria-hidden="true"></span>
+            </a>
+          </li>
+        })
+      }
+    </ul>)
   }
 
   render() {
@@ -101,4 +90,4 @@ class BookmarkList extends React.Component {
   }
 }
 
-export default injectIntl(BookmarkList);
+export default injectIntl(BookmarkList, {withRef: true});

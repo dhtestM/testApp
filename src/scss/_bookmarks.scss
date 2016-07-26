@@ -1,7 +1,9 @@
-#o-bookmark-panel {
-  header {
-    position: relative;
-  }
+ul.o-bookmark-list {
+  margin: 0;
+  padding:0;
+  list-style: none;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
   .o-bookmark-title {
     color:#666;
     display: inline-block;
@@ -10,7 +12,6 @@
     text-decoration: none;
     font-weight:bold;
   }
-
   .o-bookmark-date {
     margin-top:10px;
     color: #989898;
@@ -20,15 +21,41 @@
       padding:0 4px;
     }
   }
-
-  .o-bookmark-empty-help{
-    height: 100%;
-    width: 100%;
-    display: table;
-    padding: 0 20px;
-    box-sizing: border-box;
+  li {
+    margin-top:15px;
+    font-weight: normal;
+    padding: 15px 10px 15px 17px;
+    min-height: 21px;
+    position: relative;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    .remove {
+      position: absolute;
+      padding: 10px;
+      right: 10px;
+      top: 25%;
+      color: #989898;
+      text-decoration: none;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .remove:hover,
+    .remove:focus {
+      color: #000;
+    }
   }
 
+  li:hover {
+    background: #e6e6e6;
+  }
+}
+
+.o-bookmark-empty-help{
+  height: 100%;
+  width: 100%;
+  display: table;
+  padding: 0 20px;
+  box-sizing: border-box;
   .o-bookmark-empty-message{
     text-align: center;
     display: table-cell;
@@ -39,41 +66,5 @@
     line-height: 20px;
     padding-top: 30px;
   }
-
-  ul.o-bookmark-list {
-    margin: 0;
-    padding:0;
-    list-style: none;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
-
-    li {
-      margin-top:15px;
-      font-weight: normal;
-      padding: 15px 10px 15px 17px;
-      min-height: 21px;
-      position: relative;
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      .remove {
-        position: absolute;
-        padding: 10px;
-        right: 10px;
-        top: 25%;
-        color: #989898;
-        text-decoration: none;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .remove:hover,
-      .remove:focus {
-        color: #000;
-      }
-    }
-
-    li:hover {
-      background: #e6e6e6;
-    }
-  }
 }
+
