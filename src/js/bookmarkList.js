@@ -91,7 +91,6 @@ class BookmarkList extends React.Component {
 
 BookmarkList.propTypes = {
   intl: intlShape.isRequired,
-  elementId: PropTypes.string.isRequired,
   locale: PropTypes.string,
   clickBookmarkHandler: PropTypes.func,
   removeBookmarkHandler: PropTypes.func,
