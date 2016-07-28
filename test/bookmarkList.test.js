@@ -3,7 +3,7 @@ import expectJSX from 'expect-jsx';
 import React from 'react';
 import {IntlProvider} from 'react-intl';
 import TestUtils from 'react-addons-test-utils';
-import BookmarkList from '../src/js/BookmarkList';
+import BookmarkList from '../src/js/bookmarkList';
 
 expect.extend(expectJSX);
 
