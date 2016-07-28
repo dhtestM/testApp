@@ -18,8 +18,6 @@ class BookmarkList extends React.Component {
 
   handleRemoveBookmark(uri) {
     function callBack() {
-      //const removedObj = this.props.bookmarksArr.find(item => item.uri === uri);
-      //const index = this.props.bookmarksArr.indexOf(removedObj);
       const index = this.props.bookmarksArr.findIndex(item => item.uri === uri);
       this.props.bookmarksArr.splice(index, 1);
 
