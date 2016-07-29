@@ -5,6 +5,7 @@ env:
   es6: true
   browser: true
   node: true
+  jasmine: true
 
 rules:
   # Style
@@ -62,7 +63,7 @@ rules:
   space-infix-ops: 0
   consistent-return: 0
 
- # parser: babel-eslint
+parser: babel-eslint
 
 plugins:
   - react

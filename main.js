@@ -1,6 +1,3 @@
-'use strict';
-
-// bundled component styling
 import './main.scss';
 
 import React from 'react';
@@ -40,7 +37,4 @@ export default class BookmarkListDemo {
   }
 }
 
-//
-// For events, use the Origami naming convention of pre-pending with 'o.'
-//
 document.body.addEventListener('o.initBookmarkListDemo', e => new BookmarkListDemo(e.detail));

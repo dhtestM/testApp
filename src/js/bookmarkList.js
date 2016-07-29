@@ -1,5 +1,3 @@
-'use strict';
-
 import React, {PropTypes} from 'react';
 import {injectIntl, intlShape} from 'react-intl';
 import {messages} from './defaultMessages';
@@ -35,7 +33,7 @@ class BookmarkList extends React.Component {
       <div tabIndex="0" className="o-bookmark-empty-message">
         <p>{formatMessage(messages.noBookmarksMsg)}</p>
       </div>
-    </div>)
+    </div>);
   }
 
   renderBookmarks() {
@@ -76,7 +74,7 @@ class BookmarkList extends React.Component {
           </li>
         })
       }
-    </ul>)
+    </ul>);
   }
 
   render() {
